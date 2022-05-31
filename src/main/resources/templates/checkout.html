@@ -1,0 +1,136 @@
+<html lang="pt-br">
+    <head>
+        <title>Checkout RCHLO</title>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    </head>
+
+    <div class="jumbotron">
+        <div class="container">
+            <h1 class="display-4">Ótima escolha!</h1>
+            <p class="lead">Obrigado por comprar na RCHLO! Preencha seus dados para efetivar a compra.</p>
+        </div>
+    </div>
+
+    <div class="container">
+
+    <div class="row">
+
+        <div class="col-md-4">
+
+            <div class="card">
+                <div class="card-header">
+                    <h2>Sua compra</h2>
+                </div>
+                <div class="card-body">
+                    <img class="img-thumbnail mb-3"
+                         th:attr="alt=${produto.nome},src=${produto.urlImagem}"
+                         alt="Camiseta Manga Curta Malha Tie Dye The Simpsons Branco Riachuelo"
+                         src="https://static.riachuelo.com.br/RCHLO/14247984003/portrait/279d0565feb361cff852a6a792ffdb5c89890ba3.jpg">
+                    <dl>
+                        <dt>Produto</dt>
+                        <dd th:text="${produto.nome}">Camiseta Manga Curta Malha Tie Dye The Simpsons Branco Riachuelo</dd>
+                
+                        <dt>Cor</dt>
+                        <dd th:text="${produto.cor}">Branco</dd>
+                
+                        <dt>Tamanho</dt>
+                        <dd th:text="${produto.tamanho}">G</dd>
+                
+                        <dt>Preço</dt>
+                        <dd th:text="${produto.preco}">R$ 69,90</dd>
+                    </dl>
+                </div>
+            </div> <!-- card -->
+    
+        </div>
+
+        <div class="col-md-8">
+
+            <form class="formulario-checkout mt-3 mt-sm-0" novalidate>
+                <fieldset>
+                    <legend>Dados Pessoais</legend>
+    
+                    <div class="form-group">
+                        <label for="nome">Nome completo</label>
+                        <input class="form-control" type="text" id="nome" name="nome" required maxlength="200">
+                        <div class="invalid-feedback">
+                            O nome é obrigatório.
+                        </div>
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input class="form-control" type="email" id="email" name="email" placeholder="email@exemplo.com" required maxlength="300">
+                        <div class="invalid-feedback">
+                            O email é obrigatório.
+                        </div>
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="cpf">CPF</label>
+                        <input class="form-control" type="text" id="cpf" name="cpf" placeholder="000.000.000-00" required maxlength="14" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}">
+                        <div class="invalid-feedback">
+                            O cpf é obrigatório.
+                        </div>
+                    </div>
+    
+                    <div class="form-group form-check">
+                        <input class="form-check-input" id="newsletter" type="checkbox" name="newsletter" value="true" checked>
+                        <label class="form-check-label" for="newsletter">Quero receber a newsletter da RCHLO!</label>
+                    </div>
+    
+                </fieldset>
+            
+                <fieldset>
+                    <legend>Cartão de crédito</legend>
+    
+                    <div class="form-group">
+                        <label for="numero-cartao">Número</label>
+                        <input class="form-control" type="text" id="numero-cartao" name="numero-cartao" required maxlength="16" pattern="\d{16}" placeholder="0000000000000000">
+                        <div class="invalid-feedback">
+                            O número do cartão é obrigatório.
+                        </div>
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="cvv-cartao">CVV</label>
+                        <input class="form-control" type="text" id="cvv-cartao" name="cvv-cartao" required maxlength="3" pattern="\d{3}">
+                        <div class="invalid-feedback">
+                            O CVV do cartão é obrigatório.
+                        </div>
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="bandeira-cartao">Bandeira</label>
+                        <select class="form-control" id="bandeira-cartao" name="bandeira-cartao">
+                            <option value="mastercard" selected>MasterCard</option>
+                            <option value="visa">VISA</option>
+                            <option value="american-express">American Express</option>
+                        </select>
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="validade-cartao">Validade</label>
+                        <input class="form-control" type="month" id="validade-cartao" name="validade-cartao" required>
+                        <div class="invalid-feedback">
+                            A validade do cartão é obrigatória.
+                        </div>
+                    </div>
+    
+                </fieldset>
+    
+                <button type="submit" class="btn btn-primary">Confirmar Pedido</button>
+            </form>
+    
+        </div>
+
+    </div> <!-- row -->
+
+    </div> <!-- container -->
+
+    <script src="validacao.js"></script>
+
+</body>
+</html>
