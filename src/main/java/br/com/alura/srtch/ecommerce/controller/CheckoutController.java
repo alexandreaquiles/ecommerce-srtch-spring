@@ -15,12 +15,12 @@ public class CheckoutController {
   @Autowired
   private ProdutoRepository produtoRepository;
 
-  @GetMapping("/checkout")
+  @GetMapping("/ecommerce/checkout")
   public String formularioCheckout(Model model) {
     Produto produto = produtoRepository.findById(1L)
         .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
     model.addAttribute("produto", produto);
-    return "checkout";
+    return "checkout/checkout";
   }
 
 }
