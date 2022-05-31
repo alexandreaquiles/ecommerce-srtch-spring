@@ -5,7 +5,7 @@ formularioCheckout.addEventListener('submit', function(event) {
     event.preventDefault();
 
     const inputsObrigatorios = document.querySelectorAll('input[required]');
-    inputsObrigatorios.forEach(inputObrigatorio => {
+    inputsObrigatorios.forEach((inputObrigatorio: HTMLInputElement) => {
         if(!inputObrigatorio.value) {
             inputObrigatorio.classList.add('is-invalid');
         }
@@ -14,7 +14,7 @@ formularioCheckout.addEventListener('submit', function(event) {
 });
 
 const inputsObrigatorios = document.querySelectorAll('input[required]');
-inputsObrigatorios.forEach(inputObrigatorio => {
+inputsObrigatorios.forEach((inputObrigatorio: HTMLInputElement) => {
     inputObrigatorio.addEventListener('blur', function() {
         if(!inputObrigatorio.value) {
             inputObrigatorio.classList.add('is-invalid');
@@ -27,7 +27,7 @@ inputsObrigatorios.forEach(inputObrigatorio => {
 });
 
 
-const inputNumeroCartao = document.querySelector('#numero-cartao');
+const inputNumeroCartao: HTMLInputElement = document.querySelector('#numero-cartao');
 inputNumeroCartao.addEventListener('input', function() {
     const digitado = inputNumeroCartao.value;
     const apenasNumeros = digitado.replace(/\D/g, '');
